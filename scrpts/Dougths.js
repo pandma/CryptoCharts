@@ -1,16 +1,17 @@
 const ctx2 = document.getElementById('myChart2').getContext('2d');
 
 
-fetch('http://api.coinlayer.com/api/live?access_key=5ddbb53273b1a43516d71dc973f37520')
+fetch('https://api.coincap.io/v2/assets')
     .then(res => res.json())
-    .then((crypto) => {
+    .then(({ data }) => {
         const myChart2 = new Chart(ctx2, {
             type: 'doughnut',
             data: {
-                labels: ['Bitcoin', 'Etherium', ],
+                labels: [data[0].id, data[1].id, data[2].id, data[3].id, data[4].id, data[5].id],
                 datasets: [{
                     label: '#Crypto',
-                    data: [crypto.rates.BTC, crypto.rates.ETH],
+                    data: [data[0].priceUsd, data[1].priceUsd, data[3].priceUsd, data[4].priceUsd, data[5].priceUsd],
+
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -30,13 +31,5 @@ fetch('http://api.coinlayer.com/api/live?access_key=5ddbb53273b1a43516d71dc973f3
                     borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-
         });
     })

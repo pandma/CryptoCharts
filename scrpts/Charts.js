@@ -1,16 +1,16 @@
 const ctx = document.getElementById('myChart').getContext('2d');
 
 
-fetch('http://api.coinlayer.com/api/live?access_key=5ddbb53273b1a43516d71dc973f37520')
+fetch('https://api.coincap.io/v2/assets')
     .then(res => res.json())
-    .then((crypto) => {
+    .then(({ data }) => {
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Bitcoin', 'Etherium', ],
+                labels: [data[0].id, data[1].id, data[2].id, ],
                 datasets: [{
                     label: '#Crypto',
-                    data: [crypto.rates.BTC, crypto.rates.ETH],
+                    data: [data[0].priceUsd, data[1].priceUsd, data[2].priceUsd],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

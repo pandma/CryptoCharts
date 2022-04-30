@@ -1,9 +1,16 @@
 body {
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(37, 37, 37);
+    color: rgb(204, 206, 207);
 }
 
 h1 {
     text-align: center;
     margin: 20px;
+}
+
+#myChart2 {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin: 50px;
 }
