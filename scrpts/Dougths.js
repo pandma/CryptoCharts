@@ -10,7 +10,7 @@ fetch('https://api.coincap.io/v2/assets')
                 labels: [data[0].id, data[1].id, data[2].id, data[3].id, data[4].id, data[5].id],
                 datasets: [{
                     label: '#Crypto',
-                    data: [data[0].priceUsd, data[1].priceUsd, data[3].priceUsd, data[4].priceUsd, data[5].priceUsd],
+                    data: [data[0].marketCapUsd, data[1].marketCapUsd, data[3].marketCapUsd, data[4].marketCapUsd, data[5].marketCapUsd],
 
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',

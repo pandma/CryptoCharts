@@ -1,16 +1,17 @@
-const ctx = document.getElementById('myChart').getContext('2d');
+const ctx3 = document.getElementById('myChart3').getContext('2d');
 
 
 fetch('https://api.coincap.io/v2/assets')
     .then(res => res.json())
     .then(({ data }) => {
-        const myChart = new Chart(ctx, {
-            type: 'bar',
+        const myChart2 = new Chart(ctx3, {
+            type: 'line',
             data: {
-                labels: [data[0].id, data[1].id, data[2].id, ],
+                labels: [data[0].id, data[1].id, data[2].id, data[3].id, data[4].id, data[5].id],
                 datasets: [{
-                    label: 'Bitcoin',
-                    data: [data[0].priceUsd, data[1].priceUsd, data[2].priceUsd],
+                    label: '#Crypto',
+                    data: [data[0].marketCapUsd, data[1].marketCapUsd, data[3].marketCapUsd, data[4].marketCapUsd, data[5].marketCapUsd],
+
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -27,16 +28,9 @@ fetch('https://api.coincap.io/v2/assets')
                         'rgba(153, 102, 255, 1)',
                         'rgba(255, 159, 64, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(255, 99, 132, 1)',
                 }]
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-
         });
     })
