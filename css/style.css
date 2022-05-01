@@ -9,7 +9,8 @@ h3 {
     margin: 20px;
 }
 
-#myChart2 {
+#myChart2,
+#myChart4 {
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 30px;
